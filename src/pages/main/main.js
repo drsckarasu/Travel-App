@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-param-reassign */
 import { useState, useEffect } from 'react';
 import data from '../../database/database.json';
 import TripsFilter from '../../components/tripsFilter/tripsFilter';
@@ -14,18 +16,40 @@ const Main = () => {
     setTrips(data.tripsList);
   }, []);
 
-  const inRange = (x, min, max) => ((x - min) * (x - max) <= 0);
+  const inRange = (x, num) => {
+    if (+num === 0) {
+      return x < 5;
+    }
+    if (+num === 5) {
+      return x < 10;
+    }
+    if (+num === 10) {
+      return x >= 10;
+    }
+  };
 
   useEffect(() => {
-    if (tripDuration.length === 1 && tripLevel.length === 0 && trips) {
+    if (!tripDuration && tripLevel) {
       setFilteredTrips(trips
-        .filter((trip) => (trip.title.toLowerCase().includes(tripTitle.toLowerCase()))));
-    } else {
+        .filter((trip) => (
+          trip.title.toLowerCase().includes(tripTitle.toLowerCase())))
+        .filter((trip) => trip.level === tripLevel));
+    } else if (!tripLevel && tripDuration) {
       setFilteredTrips(trips
         .filter((trip) => (
           trip.title.toLowerCase().includes(tripTitle.toLowerCase())))
         .filter((trip) => (
-          inRange(trip.duration, tripDuration[0], tripDuration[1])))
+          inRange(trip.duration, tripDuration))));
+    } else if (!tripLevel && !tripDuration) {
+      setFilteredTrips(trips
+        .filter((trip) => (
+          trip.title.toLowerCase().includes(tripTitle.toLowerCase()))));
+    } else if (tripLevel && tripDuration) {
+      setFilteredTrips(trips
+        .filter((trip) => (
+          trip.title.toLowerCase().includes(tripTitle.toLowerCase())))
+        .filter((trip) => (
+          inRange(trip.duration, tripDuration)))
         .filter((trip) => trip.level === tripLevel));
     }
   }, [tripDuration, tripTitle, tripLevel, trips]);

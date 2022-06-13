@@ -7,7 +7,7 @@ const Trips = ({ trips }) => (
     <ul className="trip-list">
 
       {(trips.length === 0 && (
-      <p className="">There are no content</p>
+      <p style={{ color: 'red' }}>There are no content</p>
       ))
       || trips.map((trip) => (
         <Trip

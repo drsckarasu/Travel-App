@@ -10,7 +10,7 @@ const TripsFilter = ({
     setTripTitle(e.target.value);
   };
   const durationHandler = (e) => {
-    setTripDuration(e.target.value.split('_x_'));
+    setTripDuration(e.target.value.split('_x_')[0]);
   };
   const levelHandler = (e) => {
     setTripLevel(e.target.value);
