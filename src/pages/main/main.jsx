@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-param-reassign */
 import { useState, useEffect } from 'react';
 import data from '../../database/database.json';
 import TripsFilter from '../../components/tripsFilter/tripsFilter';
@@ -26,6 +24,7 @@ const Main = () => {
     if (+num === 10) {
       return x >= 10;
     }
+    return false;
   };
 
   useEffect(() => {

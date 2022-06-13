@@ -14,6 +14,7 @@ const PasswordInput = ({ name, type, label }) => {
       setPasswordError('');
     }
   };
+
   return (
     <label className="trip-popup__input input">
       <span className="input__heading">{label}</span>

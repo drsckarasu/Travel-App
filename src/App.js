@@ -23,7 +23,6 @@ const App = () => (
         element={<Navigate to="/" replace />}
       />
     </Routes>
-
     <Footer />
   </BrowserRouter>
 );

@@ -9,7 +9,6 @@ const Bookings = () => {
   }, []);
 
   return (
-
     <main className="bookings-page">
       <h1 className="visually-hidden">Travel App</h1>
       <ul className="bookings__list">

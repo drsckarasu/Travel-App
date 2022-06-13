@@ -5,7 +5,6 @@ const Trips = ({ trips }) => (
   <section className="trips">
     <h2 className="visually-hidden">Trips List</h2>
     <ul className="trip-list">
-
       {(trips.length === 0 && (
       <p style={{ color: 'red' }}>There are no content</p>
       ))

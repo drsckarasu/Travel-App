@@ -6,6 +6,7 @@ const Trip = ({ trip }) => {
   const {
     image, title, duration, level, price,
   } = trip;
+
   return (
     <li className="trip-card">
       <img src={image} alt="trip image" />

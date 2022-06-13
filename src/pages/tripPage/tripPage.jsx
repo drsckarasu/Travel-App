@@ -12,7 +12,6 @@ const TripPage = () => {
   } = trip;
 
   return (
-
     <main className="trip-page">
       <h1 className="visually-hidden">Travel App</h1>
       <div className="trip">
