@@ -10,7 +10,7 @@ const TripsFilter = ({
     setTripTitle(e.target.value);
   };
   const durationHandler = (e) => {
-    setTripDuration(e.target.value.split('_x_')[0]);
+    setTripDuration(e.target.value.split('_x')[0]);
   };
   const levelHandler = (e) => {
     setTripLevel(e.target.value);
@@ -36,7 +36,7 @@ const TripsFilter = ({
             <option value="">duration</option>
             <option value="0_x_5">&lt; 5 days</option>
             <option value="5_x_10">&lt; 10 days</option>
-            <option value="10_x_100">&ge; 10 days</option>
+            <option value="10_x">&ge; 10 days</option>
           </select>
         </label>
         <label className="select">
